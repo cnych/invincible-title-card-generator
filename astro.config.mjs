@@ -9,7 +9,7 @@ import compress from 'astro-compress'; // 注意：需要安装这个依赖
 // https://astro.build/config
 export default defineConfig({
   // 设置站点 URL（部署时应替换为实际域名）
-  site: 'https://invincibletitlecardgenerator.com',
+  site: 'https://www.invincibletitlecardgenerator.com',
   
   vite: {
     // @ts-ignore
@@ -23,8 +23,8 @@ export default defineConfig({
       filter: (page) => !page.includes('/admin/') && !page.includes('/draft/'),
       // 添加自定义链接
       customPages: [
-        'https://invincibletitlecardgenerator.com/terms',
-        'https://invincibletitlecardgenerator.com/privacy',
+        'https://www.invincibletitlecardgenerator.com/terms',
+        'https://www.invincibletitlecardgenerator.com/privacy',
       ],
       // 设置默认的changefreq和priority值
       changefreq: 'weekly',
