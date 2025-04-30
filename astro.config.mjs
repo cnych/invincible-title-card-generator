@@ -10,6 +10,8 @@ import compress from 'astro-compress'; // 注意：需要安装这个依赖
 export default defineConfig({
   // 设置站点 URL（部署时应替换为实际域名）
   site: 'https://www.invincibletitlecardgenerator.com',
+
+  trailingSlash: 'never',
   
   vite: {
     // @ts-ignore
