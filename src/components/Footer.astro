@@ -1,0 +1,50 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="relative mt-auto bg-slate-950 border-t border-slate-800">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Copyright Notice -->
+      <div class="flex flex-col space-y-4">
+        <div class="flex items-center space-x-2">
+          <a href="/" title="Invincible Title Card Generator" aria-label="Back to Homepage" class="flex flex-row gap-2 items-center group transition-all">
+            <img src="/logo.png" alt="Invincible Title Card Generator Logo" class="h-8 w-auto" aria-hidden="true" />
+            <p class="text-sm font-semibold text-white">Invincible Title Card Generator</p>
+          </a>
+        </div>
+        <p class="text-xs text-slate-400">
+          This website is not affiliated with Invincible or Amazon Prime Video.
+          All trademarks and copyrights belong to their respective owners.
+        </p>
+        <p class="text-xs text-slate-500 mt-4">
+          &copy; {currentYear} Invincible Title Card Generator. All rights reserved.
+          <a href="/sitemap.xml" class="text-xs text-slate-500 hover:text-white transition-colors">Sitemap</a>
+        </p>
+      </div>
+      
+      <!-- Navigation Links -->
+      <div class="md:col-span-1">
+        <h2 class="text-sm font-semibold text-white mb-4">Quick Links</h2>
+        <nav class="flex flex-col space-y-2">
+          <a href="/#features" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a>
+          <a href="/#how-to-use" class="text-sm text-slate-400 hover:text-white transition-colors">How to Use</a>
+          <a href="/#faq" class="text-sm text-slate-400 hover:text-white transition-colors">FAQ</a>
+          <a href="/#about" class="text-sm text-slate-400 hover:text-white transition-colors">About</a>
+        </nav>
+      </div>
+    </div>
+    
+    <div class="mt-8 pt-6 border-t border-slate-800/50 flex flex-col md:flex-row md:items-center justify-between">
+      <p class="text-xs text-slate-500">
+        Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Astro</a> and <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">React</a>
+      </p>
+      
+      <div class="mt-4 md:mt-0 flex space-x-4">
+        <a href="/privacy" class="text-xs text-slate-500 hover:text-white transition-colors">Privacy Policy</a>
+        <span class="text-slate-700">•</span>
+        <a href="/terms" class="text-xs text-slate-500 hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer> 

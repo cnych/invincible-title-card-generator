@@ -1,0 +1,154 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+  keywords?: string;
+}
+
+const { 
+  title, 
+  description = 'Create custom title cards in the style of the Invincible animated series. Customize text, colors, backgrounds, and effects', 
+  image = '/logo.png',
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  type = 'website',
+  keywords = ''
+} = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Core SEO meta tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Invincible Title Card Generator Team" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Social media meta tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site).href} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Invincible Title Card Generator" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).href} />
+    
+    <!-- Mobile app meta tags -->
+    <meta name="application-name" content="Invincible Title Card Generator" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Invincible Title Card Generator" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#0F172A" />
+    
+    <!-- Preconnect and preload resources for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="font" href="/woodblock.otf" type="font/otf" crossorigin />
+    <link rel="preload" as="font" href="/Futura.woff2" type="font/woff2" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-950 antialiased text-slate-400 flex flex-col min-h-screen">
+    <slot />
+    <style is:global>
+      :root {
+        --color-border: #2a2d37;
+      }
+      
+      .input {
+        border: none;
+        background: #1f1f1f;
+        padding: 8px 12px;
+        color: white;
+        border-radius: 8px;
+        outline: none;
+      }
+      
+      .input:focus {
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+      }
+      
+      /* Firefox */
+      .input::-moz-range-track {
+        background: #3f4046;
+        height: 4px;
+        border-radius: 2px;
+      }
+      
+      .input::-moz-range-thumb {
+        border: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: #efe100;
+        cursor: pointer;
+        transition: all 0.1s;
+      }
+      
+      /* Chromium */
+      .input::-webkit-slider-runnable-track {
+        background: #3f4046;
+        height: 4px;
+        border-radius: 2px;
+      }
+      
+      .input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        margin-top: -6px;
+        border: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: #efe100;
+        cursor: pointer;
+        transition: all 0.1s;
+      }
+      
+      .curved-text {
+        text-shadow: rgba(253, 224, 71, 0.25) 0 0 125px;
+      }
+      
+      @font-face {
+        font-family: 'Woodblock';
+        src: url('/woodblock.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      .woodblock {
+        font-family: 'Woodblock', sans-serif;
+      }
+
+      /* Animation for header */
+      header {
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      
+      header.opacity-0 {
+        transform: translateY(-100%);
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# 站点地图位置
+Sitemap: https://invincibletitlecardgenerator.com/sitemap-index.xml
+

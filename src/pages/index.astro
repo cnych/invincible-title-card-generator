@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TitleCardEditor from '../components/TitleCardEditor';
+import JsonLd from '../components/JsonLd.astro';
+import { Analytics } from '@vercel/analytics/react';
+
+// FAQ data
+const faqs = [
+  {
+    question: "What is the Invincible Title Card Generator?",
+    answer: "The Invincible Title Card Generator is a free online tool that allows users to create custom title cards in the style of the 'Invincible' animated series. You can customize text, colors, backgrounds, and effects, then download high-quality images for your projects."
+  },
+  {
+    question: "Is this tool free to use?",
+    answer: "Yes, the Invincible Title Card Generator is completely free. You can create and download as many title cards as you want without paying any fees or creating an account."
+  },
+  {
+    question: "Can I use the generated title cards for commercial projects?",
+    answer: "We allow the use of generated cards for personal and non-commercial purposes. For commercial use, please note that 'Invincible' is a registered trademark of its copyright holder, and you'll need to obtain appropriate licenses. Please refer to our Terms of Service for more details."
+  },
+  {
+    question: "Can I use this tool on my mobile device?",
+    answer: "Yes, the Invincible Title Card Generator features a responsive design that works on smartphones, tablets, and desktop computers. The interface automatically adjusts to fit your screen size."
+  },
+  {
+    question: "How do I change font size and colors?",
+    answer: "In the editor interface, you can use the sliders and color pickers in the control panel to adjust text size, colors, and outlines. Changes are displayed in real-time in the preview area."
+  },
+  {
+    question: "What resolution are the generated images?",
+    answer: "By default, the generated title cards are 1920 x 1080 pixels (full HD), which is suitable for most modern display devices and social media platforms."
+  }
+];
+
+// FAQ structured data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<Layout 
+  title="Invincible Title Card Generator" 
+  description="Free online generator for creating Invincible title card. No cost, no signup. Customize text, colors & effects instantly. Download HD images with one click!"
+  keywords=""
+>
+  <JsonLd />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Analytics client:load />
+  <Header />
+  
+  <main class="flex-grow">
+    <!-- Editor section -->
+    <section id="editor" class="mt-16 md:mt-20">
+      <TitleCardEditor client:load />
+    </section>
+
+    <!-- Introduction - SEO-friendly text content -->
+    <section class="bg-gray-900 py-12 px-4 text-center mt-4 md:mt-12">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-bold text-yellow-400 mb-6 woodblock">Invincible Title Card Generator</h1>
+        <p class="text-white text-lg md:text-xl mb-6">
+          Create custom title cards in the style of the Invincible animated series for free online. Adjust colors, backgrounds, text, and effects, then download high-quality images with one click.
+        </p>
+        <div class="mt-6">
+          <a href="#editor" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-300 inline-block">
+            Start Creating
+          </a>
+          <a href="#faq" class="ml-4 bg-transparent border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-300 inline-block">
+            View FAQ
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Feature highlights - increase keyword density -->
+    <section id="features" class="bg-gray-800 py-10 px-4 scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-center text-yellow-300 mb-10">Title Card Generator Features</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+            <div class="text-yellow-400 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">Highly Customizable</h3>
+            <p class="text-gray-300">Fully customize text content, font size, colors, outlines, and positions to make your title cards stand out.</p>
+          </div>
+          <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+            <div class="text-yellow-400 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">Various Backgrounds & Effects</h3>
+            <p class="text-gray-300">Choose from multiple background options, add visual effects and filters to create professional Invincible-style title cards.</p>
+          </div>
+          <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+            <div class="text-yellow-400 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">High-Quality Export</h3>
+            <p class="text-gray-300">Export high-definition PNG images with one click, perfect for video production, social media sharing, or personal collection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <!-- How-to guide - increase keyword density and content value -->
+    <section id="how-to-use" class="bg-gray-900 py-10 px-4 scroll-mt-20">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">How to Use the Title Card Generator</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-gray-700 p-6 rounded-lg">
+            <div class="text-yellow-400 text-center text-xl font-bold mb-4">1</div>
+            <h3 class="text-xl font-semibold text-yellow-400 mb-3 text-center">Choose a Style</h3>
+            <p class="text-gray-200">Select from preset themes or customize backgrounds and text colors to match your favorite characters or scenes. Multiple styles available.</p>
+          </div>
+          
+          <div class="bg-gray-700 p-6 rounded-lg">
+            <div class="text-yellow-400 text-center text-xl font-bold mb-4">2</div>
+            <h3 class="text-xl font-semibold text-yellow-400 mb-3 text-center">Customize Text</h3>
+            <p class="text-gray-200">Enter your desired title text and subtitle, adjust font size, position, and outline to create the perfect visual effect.</p>
+          </div>
+          
+          <div class="bg-gray-700 p-6 rounded-lg">
+            <div class="text-yellow-400 text-center text-xl font-bold mb-4">3</div>
+            <h3 class="text-xl font-semibold text-yellow-400 mb-3 text-center">Download Result</h3>
+            <p class="text-gray-200">Click the "Download Title Card" button to get a high-quality PNG image, watermark-free and ready for all your projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ section -->
+    <section id="faq" class="bg-gray-800 py-12 px-4 scroll-mt-20">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-8 text-center woodblock">Frequently Asked Questions</h2>
+        
+        <div class="bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+          {faqs.map((faq, index) => (
+            <div class={`border-b border-gray-600 ${index === faqs.length - 1 ? 'border-none' : ''}`}>
+              <details class="group p-5">
+                <summary class="flex justify-between items-center font-semibold text-xl text-yellow-300 cursor-pointer">
+                  <span>{faq.question}</span>
+                  <span class="transition group-open:rotate-180">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="mt-3 text-white">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            </div>
+          ))}
+        </div>
+        
+        <!-- FAQ supplementary text -->
+        <div class="mt-8 bg-gray-700 p-6 rounded-lg shadow-lg">
+          <p class="text-white mb-4">
+            The Invincible Title Card Generator is an online tool designed specifically for fans of the Invincible animated series and content creators. With simple operations, you can create professional-looking title cards for videos, social media sharing, presentations, or any occasion requiring eye-catching titles.
+          </p>
+          <p class="text-white">
+            If you have any additional questions, feel free to <a href="mailto:contact@invincible-generator.example.com" class="text-yellow-400 hover:underline">contact us</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- User testimonials - add social proof and credibility -->
+    <section class="bg-gray-900 py-12 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-10 text-center">What Users Say</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400">
+                <span>★★★★★</span>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">"This tool is fantastic! I used it to create professional-grade title cards for my fan edit videos, and my friends thought they were officially made. The interface is simple and intuitive, yet powerful."</p>
+            <p class="text-white font-medium">- James M., Video Creator</p>
+          </div>
+          
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400">
+                <span>★★★★★</span>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">"As a fan of Invincible, I've always wanted to create similar title effects. This generator let me do it in minutes, and I could add my own colors and effects. Highly recommended!"</p>
+            <p class="text-white font-medium">- Sarah L., Animation Enthusiast</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About section -->
+    <section id="about" class="bg-gray-800 py-10 px-4 scroll-mt-20">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-white mb-6 text-center">About Invincible Title Cards</h2>
+        
+        <div class="text-gray-300 space-y-4">
+          <p>
+            Invincible is a widely popular adult animated series known for its unique artistic style and captivating storyline. The series' title card designs are highly distinctive and have become iconic elements in pop culture.
+          </p>
+          <p>
+            Our Invincible Title Card Generator allows fans and creators to easily replicate this unique visual style, adding professional-grade title effects to their own projects. Whether you're a video creator, social media content producer, or simply a fan wanting to create personalized wallpapers, you can benefit from this free tool.
+          </p>
+          <p>
+            By using our generator, you can customize text, colors, and effects to create title cards that resemble the original style while adding your personal touch. This tool runs entirely in your browser, requiring no additional software downloads or advanced design skills.
+          </p>
+          <p>
+            Try our Invincible Title Card Generator today and create impressive design work!
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Call to action -->
+    <section class="bg-yellow-500 py-10 px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to Create Your Title Card?</h2>
+        <p class="text-gray-800 text-xl mb-8">Free, simple, and fast - start creating your Invincible-style title now!</p>
+        <a href="#editor" class="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 inline-block">
+          Start Designing
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

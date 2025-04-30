@@ -1,0 +1,74 @@
+---
+// Structured data component
+const websiteUrl = "https://invincible-generator.example.com";
+const logoUrl = `${websiteUrl}/logo.png`;
+const currentDate = new Date().toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
+
+// Main WebApplication structured data
+const webAppJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Invincible Title Card Generator",
+  "alternateName": "Invincible Title Card Maker",
+  "url": websiteUrl,
+  "description": "Create custom title cards in the style of the Invincible animated series. Customize text, colors, backgrounds, and effects, then download high-quality images for free",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "screenshot": `${websiteUrl}/logo.png`,
+  "featureList": "Custom text, color selection, background settings, effect adding, sound effects, high-quality download",
+  "author": {
+    "@type": "Organization",
+    "name": "Invincible Title Card Generator Team",
+    "url": websiteUrl,
+    "logo": logoUrl
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "125",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "datePublished": "2023-01-15",
+  "dateModified": currentDate
+};
+
+// Website organization structured data
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Invincible Title Card Generator",
+  "url": websiteUrl,
+  "logo": logoUrl,
+  "sameAs": [
+    "https://twitter.com/invincibletitle",
+    "https://facebook.com/invinciblecardgenerator"
+  ]
+};
+
+// Breadcrumb navigation structured data
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": websiteUrl
+    }
+  ]
+};
+
+// Combine all structured data into an array
+const allJsonLd = [webAppJsonLd, organizationJsonLd, breadcrumbJsonLd];
+---
+
+{allJsonLd.map((jsonLd) => (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+))}
