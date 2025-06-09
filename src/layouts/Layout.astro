@@ -68,6 +68,17 @@ const {
     <link rel="preload" as="font" href="/Futura.woff2" type="font/woff2" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script is:inline type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-C1VXYQ3FDB"></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-C1VXYQ3FDB");
+    </script>
   </head>
   <body class="bg-slate-950 antialiased text-slate-400 flex flex-col min-h-screen">
     <slot />

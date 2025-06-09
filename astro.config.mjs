@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
+import partytown from '@astrojs/partytown';
 import tailwindcss from "@tailwindcss/vite";
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -17,8 +17,8 @@ export default defineConfig({
     // @ts-ignore
     plugins: [tailwindcss()],
   },
-
   integrations: [
+    partytown({ config: { forward: ['dataLayer.push'] } }),
     react(),
     sitemap({
       // 排除不需要包含在sitemap中的页面
